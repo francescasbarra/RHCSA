@@ -11,3 +11,6 @@ git diff
 #to compare changes
 
 #everytime we make a change we have to add it to the staging area (memory area that track changes)
+
+git config --global credential.helper store
+#to save credential un and pw
