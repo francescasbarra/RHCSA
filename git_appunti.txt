@@ -1,0 +1,13 @@
+git commit -m Conitainers
+#to save change
+
+git log
+#to list commit
+
+git status
+#to check the status of my file
+
+git diff
+#to compare changes
+
+#everytime we make a change we have to add it to the staging area (memory area that track changes)
