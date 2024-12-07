@@ -14,3 +14,6 @@ git diff
 
 git config --global credential.helper store
 #to save credential un and pw
+
+git show <hash-of-the-commit>
+#to show the changes made in a commit (new files, file deleted, changes to the file)
