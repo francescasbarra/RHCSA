@@ -1,0 +1,49 @@
+You need a Red Hat Developer account to download an image from the Red Hat registries.
+
+podman login 
+to authenticate to the registries. If you do not provide a registry URL to the podman login command, then it authenticates to the default configured registry.
+
+[user@host ~]$ podman login registry.lab.example.com
+Username: RH134
+Password: EXAMPLEPASSWORD
+Login Succeeded!
+
+--------------------
+
+podman login registry --get-login
+To verify that you are logged in to a registry
+
+[user01@rhel-vm ~]$ podman login registry.access.redhat.com --get-login
+RH134
+[user01@rhel-vm ~]$ podman login quay.io --get-login
+Error: not logged into quay.io
+
+--------------------
+
+Configure Container Registries
+The default configuration file for container registries is the /etc/containers/registries.conf file.
+
+If you do not specify the fully qualified name of the container image when using podman commands, then the list of registries in the unqualified-search-registries section of this file is used to search for the container image.
+
+[user@host ~]$ podman pull ubi
+If you do specify the fully qualified name of the container image from the command line, then the container utility does not search in this section. The unqualified-search-registries section can be left blank to ensure that you use the fully qualified name of the container image.
+
+[user@host ~]$ podman pull registry.access.redhat.com/ubi8/ubi:latest
+
+-------------------
+
+Configure settings for container registries in the [[registry]] sections of the file. Use a separate [[registry]] section to configure settings for each container registry.
+
+[[registry]]
+location = "registry.lab.example.com"
+insecure = true
+blocked = false
+The location setting specifies the location of the container registry.
+
+If the insecure setting is set to true, then you can use unencrypted HTTP as well as TLS connections with untrusted certificates to access the registry.
+
+If the blocked setting is set to true, then images cannot be downloaded from that registry.
+
+------------------
+
+CONTAINER FILES TO BUILD CONTAI
