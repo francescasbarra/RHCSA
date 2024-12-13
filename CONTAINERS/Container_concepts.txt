@@ -1,4 +1,4 @@
-Containers
+ContainersContainers
 A container is a running istance of a container image.
 It is a set up of one or more processes that are isolated from the rest of the system.
 A Linux container is an isolated environment that allows applications to run with all their dependencies, but without using a full virtual machine. It utilizes the resources of the host operating system, making it lighter and faster than a virtual machine.
@@ -30,4 +30,10 @@ Container Management Tools
 Red Hat Enterprise Linux provides a set of container tools that you can use to run containers in a single server:
 -podman manages containers and container images.
 -skopeo inspects, copies, deletes, and signs images.
--buildah creates container images.
+-buildah creates container images
+
+
+CONTAINER IMAGE AND REGISTRIES
+To run containers, you must use a container image. A container image is a static file that contains codified steps, and it serves as a blueprint to create containers.
+The container images package an application with all its dependencies, such as its system libraries, programming language runtimes and libraries, and other configuration settings.
+
