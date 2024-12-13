@@ -20,3 +20,6 @@ git show <hash-of-the-commit>
 
 git add .
 #we have to add every change to the staging area
+
+git pull
+#to pull/download file/dir from the github remote repository 
