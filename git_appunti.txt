@@ -1,4 +1,4 @@
-git commit -m Conitainers
+git commit -m "Containers"
 #to save change
 
 git log
@@ -17,3 +17,6 @@ git config --global credential.helper store
 
 git show <hash-of-the-commit>
 #to show the changes made in a commit (new files, file deleted, changes to the file)
+
+git add .
+#we have to add every change to the staging area
