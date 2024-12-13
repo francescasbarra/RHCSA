@@ -1,0 +1,33 @@
+Containers
+A container is a running istance of a container image.
+It is a set up of one or more processes that are isolated from the rest of the system.
+A Linux container is an isolated environment that allows applications to run with all their dependencies, but without using a full virtual machine. It utilizes the resources of the host operating system, making it lighter and faster than a virtual machine.
+
+
+VM vs Containers
+
+VM
+-Enables multiple operating systems to run simultaneously on a single hardware platform.
+-Uses a hypervisor to divide hardware into multiple virtual hardware systems.
+-Requires a complete operating system environment to support the application.
+-Virtual machines have their own complete operating system, so they are heavier.
+-Virtual machines require more time and resources since they emulate an entire computer.
+-Virtual machines are fully isolated, with their own operating system and kernel.
+
+CONTAINERS
+-Containers share the kernel of the host operating system, so they are lighter.
+-Containers start and run faster because they use fewer resources.
+-Containers isolate applications but share the kernel.
+-Runs directly on the host operating system, and it shares resources with all containers on the system.
+-Shares the host's kernel, but it isolates the application processes from the rest of the system.
+-Requires far fewer hardware resources than virtual machines, so containers are also quicker to start.
+
+
+Rootless and Rootful Containers
+On the container host, you can run containers as the root user or as a regular, unprivileged user. Containers that a privileged user runs are called rootful containers. Containers that non-privileged users run are called rootless containers.
+
+Container Management Tools
+Red Hat Enterprise Linux provides a set of container tools that you can use to run containers in a single server:
+-podman manages containers and container images.
+-skopeo inspects, copies, deletes, and signs images.
+-buildah creates container images.
