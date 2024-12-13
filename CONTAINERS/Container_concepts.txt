@@ -37,3 +37,16 @@ CONTAINER IMAGE AND REGISTRIES
 To run containers, you must use a container image. A container image is a static file that contains codified steps, and it serves as a blueprint to create containers.
 The container images package an application with all its dependencies, such as its system libraries, programming language runtimes and libraries, and other configuration settings.
 
+A CONTAINER REGISTRY is a repository for storing and retrieving container images. 
+A developer/you can PUSHE or uploads container images to a container registry. 
+You can PULL or download container images from a registry to a local system to run containers.
+
+
+SOURCES OF THE IMAGER: You can use public (third parties) or private registries (from your organization).
+
+RHEL REGISTRIES.
+- registry.redhat.io for containers that are based on official Red Hat products
+- registry.connect.redhat.com for containers that are based on third-party products
+
+
+
