@@ -30,4 +30,15 @@ to view version and contents of the package
 
 ------------------------
 
+DOWNLOAD A CONTAINER IMAGE FROM A REGISTRY
+
+podman info
+to check configuration information about the podman utility
+
+
+podman search "image"
+to search name image by using the list of registries in the registries.conf file
+
+
+
 
