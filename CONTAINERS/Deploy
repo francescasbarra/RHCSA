@@ -19,3 +19,15 @@ podman search	#Search a registry for an image.
 
 
 INSTALL CONTAINER UTILITIES
+
+The container-tools meta-package contains required utilities to interact with containers and container images.
+
+#[root@host ~]# dnf install container-tools
+to install the container-tools package
+
+#[user@host ~]$ dnf info container-tools 
+to view version and contents of the package
+
+------------------------
+
+
