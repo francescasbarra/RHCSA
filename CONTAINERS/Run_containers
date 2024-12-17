@@ -1,0 +1,17 @@
+RUN CONTAINERS
+Once you have the container images you can use them to run containers.
+
+CONTAINER STATES:
+
+- CREATED : a container that is created but is not started.
+
+- RUNNING : a container that is running with its processes.
+
+- STOPPED : a container with its processes stopped.
+
+- PAUSED : a container with its processes paused. Not supported for rootless containers.
+
+- DELETED : a container with its processes in a dead state.
+
+
+

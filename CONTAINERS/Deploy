@@ -63,10 +63,64 @@ registry.access.redhat.com/ubi8/python-38 latest  a33d92f90990  1 hour ago  901 
 
 
 
+------------------------
+
+
+CREATE A CONTAINER IMAGE FROM A CONTAINER FILER
+
+
+podman build  
+to build the image.
+
+es. [user@host ~]$ podman build -t NAME:TAG DIR
+
+NAME
+Name for the new image.
+
+TAG
+Tag for the new image. If the tag is not specified, then the image is automatically tagged as latest.
+
+DIR
+Path to the working directory. The container file must be in the working directory. If the working directory is the current directory, then you designate it by a dot (.).
+Use the -f flag to specify a different directory from the current one.
+
+In the following example, you use the podman build command -t option to provide the python36 name and the 1.0 tag for the new image. The container file is in the current directory.
+
+[user@host python36-app]$ podman build -t python36:1.0 .
+STEP 1/3: FROM registry.access.redhat.com/ubi8/ubi:latest
+STEP 2/3: RUN dnf install -y python36
+...output omitted...
+STEP 3/3: CMD ["/bin/bash", "-c", "sleep infinity"]
+COMMIT python36:1.0
+--> 35ab820880f
+Successfully tagged localhost/python36:1.0
+35ab820880f1708fa310f835407ffc94cb4b4fe2506b882c162a421827b156fc
+
+The last line of the preceding output shows the container image ID. 
+Most Podman commands use the first 12 characters of the container image ID to refer to the container image. 
+You can use this short ID or the name of a container or a container image as arguments for most Podman commands.
+
+
+-------------------------
 
 
 
 
+You use the podman images command to verify that the image is created with the defined name and tag.
+
+[user@host ~]$ podman images
+REPOSITORY                                TAG    IMAGE ID     CREATED      SIZE
+localhost/python36                        1.0    35ab820880f1 3 minute ago 266 MB
+registry.access.redhat.com/ubi8/python-38 latest a33d92f90990 1 hour ago   901 MB
+
+
+
+
+You then use the podman inspect command to view the low-level information of the container image and verify that its content matches the requirements for the container.
+
+[user@host ~]$ podman inspect localhost/python36:1.0
+
+-------------------------
 
 
 
