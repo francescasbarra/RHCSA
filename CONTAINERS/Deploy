@@ -39,6 +39,34 @@ to check configuration information about the podman utility
 podman search "image"
 to search name image by using the list of registries in the registries.conf file
 
+skopeo inspect
+to examine different container image formats from a local directory or a remote registry without downloading the image. 
+This command output displays a list of the available version tags, exposed ports of the containerized application, and metadata of the container image.
+
+es. [user@host ~]$ skopeo inspect docker://registry.access.redhat.com/ubi8/python-38
+
+
+
+podman pull  
+to download package/image from the registries to the local machine.
+
+es.[user@host ~]$ podman pull registry.access.redhat.com/ubi8/python-38
+
+
+
+podman images 
+to display the local images
+
+es.[user@host ~]$ podman images
+REPOSITORY                                TAG     IMAGE ID      CREATED     SIZE
+registry.access.redhat.com/ubi8/python-38 latest  a33d92f90990  1 hour ago  901 MB
+
+
+
+
+
+
+
 
 
 
