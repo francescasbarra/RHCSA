@@ -30,3 +30,16 @@ The output of the command is the long ID of the container.
 es.
 [user@host ~]$ podman create --name python36 dd6ca291f097
 c54c7ee281581c198cb96b07d78a0f94be083ae94dacbae69c05bd8cd354bbec
+
+
+-------------------------------
+
+
+RUN A CONTAINER FROM A REMOTE REPOSITORY
+
+
+podman run
+The podman run command runs a process inside a container, and this process starts the new container.
+
+
+
