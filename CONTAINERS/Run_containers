@@ -41,5 +41,28 @@ RUN A CONTAINER FROM A REMOTE REPOSITORY
 podman run
 The podman run command runs a process inside a container, and this process starts the new container.
 
+es.
+[user@host ~]$ podman run -d --name python38 \
+registry.access.redhat.com/ubi8/python-38 \
+sleep infinity
+
+a60f71a1dc1b997f5ef244aaed232e5de71dd1e8a2565428ccfebde73a2f9462
+
+-------------------------------
+
+
+ENVIRONMENT ISOLATION IN CONTAINERS
+
+Containers isolate the environment of an application. Each container has its own file system, networking, and processes.
+
+
+ps -ax
+to list processes
+
+
+podman exec
+to execute a command inside a running contaiener
+
+-------------------------------
 
 
