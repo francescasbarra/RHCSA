@@ -14,4 +14,19 @@ CONTAINER STATES:
 - DELETED : a container with its processes in a dead state.
 
 
+podman ps 
+to list the running containers on the system. 
 
+
+podman ps -a 
+to view all containers (that are created, stopped, paused, or running) in the machine.
+
+
+podman create 
+to create the container to run later. 
+To create the container, you use the ID of the localhost/python36 container image. You also use the --name option to set a name to identify the container. 
+The output of the command is the long ID of the container.
+
+es.
+[user@host ~]$ podman create --name python36 dd6ca291f097
+c54c7ee281581c198cb96b07d78a0f94be083ae94dacbae69c05bd8cd354bbec
