@@ -1,4 +1,6 @@
-[cloud_user@workstation ~]$ sudo -i
+[cloud_user@workstation ~]$ sudo -i  
+#to switch to user root to create a new user
+
 [root@workstation ~]# useradd francesca
 [root@workstation ~]# passwd francesca
 Changing password for user francesca.
@@ -8,6 +10,8 @@ Retype new password:
 passwd: all authentication tokens updated successfully.
 [root@workstation ~]# su - francesca
 [francesca@workstation ~]$ ssh-keygen -t rsa -b 4096
+#ssh-keygen to create a key pair, public and private keys
+
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/francesca/.ssh/id_rsa):
 Created directory '/home/francesca/.ssh'.
@@ -30,6 +34,8 @@ The key's randomart image is:
 |  ..o.oo   o     |
 +----[SHA256]-----+
 [francesca@workstation ~]$ ssh-copy-id francesca@servera
+#to copy keys into the servera
+
 /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/francesca/.ssh/id_rsa.pub"
 The authenticity of host 'servera (172.31.119.201)' can't be established.
 ED25519 key fingerprint is SHA256:VlB53j7317Q3g8ziL0GPf0eLp3PAdBnVvKfxrFLt+8Q.
