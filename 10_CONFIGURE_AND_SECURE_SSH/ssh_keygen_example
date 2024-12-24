@@ -1,0 +1,47 @@
+[cloud_user@workstation ~]$ sudo -i
+[root@workstation ~]# useradd francesca
+[root@workstation ~]# passwd francesca
+Changing password for user francesca.
+New password:
+BAD PASSWORD: The password contains the user name in some form
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@workstation ~]# su - francesca
+[francesca@workstation ~]$ ssh-keygen -t rsa -b 4096
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/francesca/.ssh/id_rsa):
+Created directory '/home/francesca/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/francesca/.ssh/id_rsa
+Your public key has been saved in /home/francesca/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:z1HdFXfAjKEGYpFwPLVgTGTKS3LrSuWzjWPce3SNe5Y francesca@workstation
+The key's randomart image is:
++---[RSA 4096]----+
+|    .*@+o   .=.o=|
+|   . *=o o ...o.+|
+|  . =  .. o . . .|
+|   + o   . .     |
+|    +   S .o     |
+|   +    .oo..    |
+|  ..+. . .o. .   |
+| . .+=. . . E    |
+|  ..o.oo   o     |
++----[SHA256]-----+
+[francesca@workstation ~]$ ssh-copy-id francesca@servera
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/francesca/.ssh/id_rsa.pub"
+The authenticity of host 'servera (172.31.119.201)' can't be established.
+ED25519 key fingerprint is SHA256:VlB53j7317Q3g8ziL0GPf0eLp3PAdBnVvKfxrFLt+8Q.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+francesca@servera's password:
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'francesca@servera'"
+and check to make sure that only the key(s) you wanted were added.
+
+[francesca@workstation ~]$ ssh servera
