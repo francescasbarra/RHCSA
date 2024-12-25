@@ -22,4 +22,8 @@ git add .
 #we have to add every change to the staging area
 
 git pull
-#to pull/download file/dir from the github remote repository 
+#to pull/download file/dir from the github remote repository
+
+git checkout origin/main -- Containers_concepts.txt
+#to download a single file from the repository
+
