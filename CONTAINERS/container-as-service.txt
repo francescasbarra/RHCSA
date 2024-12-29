@@ -1,0 +1,15 @@
+1002  podman ps -a
+ 1003  podman start spifidor5
+ 1004  podman ps
+ 1005  mkdir -p .config/systemd/user
+ 1006  cd .config/systemd/user
+ 1007  loginctl show-user
+ 1008  loginctl show-user cloud_user
+ 1009  loginctl enable-linger
+ 1010  loginctl show-user cloud_user
+ 1011  pwd
+ 1012  podman generate systemd --name spifidor5 --files --new
+ 1013  podman stop spifidor5
+ 1014  podman rm spifidor5
+ 1015  systemctl --user enable --now container-spifidor5.service
+ 1016  systemctl --user status container-spifidor5.service

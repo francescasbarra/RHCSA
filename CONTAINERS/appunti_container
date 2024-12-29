@@ -1,0 +1,127 @@
+CONTAINERS
+
+control group (cgroup) è un modulo del kernel che assegna le risorse (e restrizioni) ai namespace
+
+sec comp è una funzionalità del kernel linux di sicurezza che permette di definire una lista di chiamate al sistema permesse e una lista di chiamate non consentite.
+es. get pid chiamata consentita mentre print f all interno della chiamata potrebbe essere una chiamata non consentita perchè all interno del kernel viene usato k print f.
+
+Container implementato come namespace, namespace diventa container
+
+CONTAINER RUNTIME è lo strumento che interagisce direttamente con il kernel per creare e mandare e mantenere in running i container.
+
+Processo di inizio del namespace è l'entrypoint del container
+ENTRYPOINT è il processo con il quale si avvia il container
+CMD comando per entrypoint
+
+-Entrypoint permette di specificare il file script con le istruzioni da eseguire all'avvio del container
+-CMD permette di specifificare direttamente il comando da eseguire
+
+
+Dockerfile è un file in cui vengono scritte le istruzioni per modificare una container image di base 
+Dockerfile = Containerfile
+
+
+-podman exec per eseguire un comando all interno di un container
+
+-podman exec -it nomecontainer bash (o sh se non è disponibile bash) - per aprire in modo interattivo una shell nel container
+
+
+------------------------
+SERVER: è UN SISTEMA, COMPUTER, MACCHINA VIRTUALE CHE ASSOLVE LE RICHIESTE DEI CLIENT 
+
+
+web server: apache (nome del pacchetto e del service di red hat :httpd; nome del pacchetto di ubuntu e del service apache2)
+altro web serer: nginx 
+
+web server è un programma/software che permette di installare ed eseguire il pacchetto del mio sito internet, ad esempio un pacchetto contentente il mio sio internet potrebbe essere un file con estensione .jar (i pacchetti .jar sono dei pacchetti buildati generalmente con maven e impacchettati appunto in un file .jar, questi pacchetti sono scritti in linguaggio di programmazione java)
+
+--------------------------------
+access point: dispositivo serve per accedere, come punto di accesso, alla rete domestica o in genereale 
+
+modem: modula e demodula i segnali, trasforma la tipoligia di segnali
+
+gateway: disp fisico/virtuale che consente di uscire da una rete locale per accedere ad un'altra rete locale o a internet
+
+switch: è un dispositivo che in una rete locale connette dispositivi tra loro e instrada i pacchetti dati all'interno della rete usando gli indirizzi MAC
+
+-----------------------------------
+
+INDIRIZZI definiti, assegnati dal protocollo :
+
+indirizzo di rete: primo indirizzo della rete disponibile es 192.168.1.0
+indirizzo broadcast: ultimo indirizzo disponibile 192.168.1.255
+
+INDIRIZZI assegnati dall'amministratore:
+
+Switch
+gateway
+
+
+------------------------------------
+
+VAR AMBIENTALI CONTAINER env
+
+podman env nomecontainer (mostra le variabili ambientali del container)
+
+------------------------------------
+
+-v per mappatura cartelle host e container (host:container) 
+consente di salvare i dati del container anche in una cartella della macchina virtuale/host. 
+
+
+
+
+
+da vedere CMD
+------------------------------------------
+comandi database finiscono sempre con ;
+
+
+-----------------------------------
+
+
+CONTAINER AS SYSTEM SERVICE
+
+IN GENERALE file dei service si trovano nella cartella /usr/lib/systemd/system, quelli originari
+mentre le modifiche che si vogliono fare ai file dei service si trovano in /etc/systemd/service
+
+
+----------------------------------
+PER CONFIGURARE LE CARATTERISTICHE DEL REGISTRO (REGISTRY, INSECURE, BLOCKED...)
+
+Configure the registry.lab.example.com classroom registry in your home directory. Log in to the container registry with admin as the user and redhat321 as the password.
+
+Create the /home/student/.config/containers directory.
+
+[student@servera ~]$ mkdir -p /home/student/.config/containers
+
+---------------------------------------
+
+Inspect the image. (CON SKOPEO SI DEVE INSERIRE DOCKER:// PRIMA DELL'IMMAGINE
+
+[student@servera ~]$ skopeo inspect \
+docker://registry.lab.example.com/ubi8/python-38
+
+-----------------------------------------
+
+Verify that the container was created.
+
+[student@servera ~]$ podman ps
+CONTAINER ID  IMAGE                                             COMMAND         CREATED             STATUS                 PORTS       NAMES
+004756b52d3d  registry.lab.example.com/ubi8/python-38:latest    sleep infinity  About a minute ago  Up About a minute ago              python38
+
+----------------------------------------
+
+podman run = podman create + podman start
+
+per creare un container da eseguire successivamente si usa il comando 
+podman create --name nomecontainer immagine
++
+podman start nomecontainer
+
+altrimenti si può creare direttamente il container con 
+podman run -d --name nomecontainer immagine
+
+
+---------------------------------------
+
