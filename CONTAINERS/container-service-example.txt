@@ -1,0 +1,9 @@
+sudo -i / sudo su -
+root #create an user and set password
+useradd user1
+passwd user1 
+
+ssh user1@server
+user1
+mkdir mycontainer #create a directory - to mount the VM/host directory into the container to provide persistent storage on the directory of the container.
+cd mycontainer
