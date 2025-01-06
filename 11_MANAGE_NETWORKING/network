@@ -1,0 +1,5 @@
+nmcli con show 
+to show all the information about the network connection
+
+nmcli con show | grep -i dns
+to show
