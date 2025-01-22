@@ -2,4 +2,10 @@ PARTITIONS
 Disk partitioning divides a hard drive into multiple logical storage partitions.You can use partitions to divide storage based on different requirements, and this division provides many benefits.
 
 MBR PARTITION SCHEME
+The Master Boot Record (MBR) partitioning scheme is the standard on systems that run BIOS firmware.
+It supports max 4 primary partitions. With extended and logical partitions, you can create up to 15 partitions.
+
+Since these limitations, these scheme is superseded by GPT scheme.
+
+GPT SCHEME (GUID Partition Table)
 
