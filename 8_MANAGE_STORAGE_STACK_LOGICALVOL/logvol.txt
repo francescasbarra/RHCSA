@@ -2,3 +2,17 @@ CREATE AND EXTEND LOGICAL VOLUMES
 Use the Logical Volume Manager (LVM) system to create logical storage volumes as a layer on the physical storage. This storage system provides greater flexibility than using physical storage directly.
 
 
+Physical devices
+Logical volumes use physical devices for storing data. These devices might be disk partitions, whole disks, RAID arrays, or SAN disks. You must initialize the device as an LVM physical volume.
+
+Physical Volumes (PVs)
+LVM uses the underlying physical device as the LVM physical volume. LVM tools segment the physical volumes into Physical Extents (PEs) to form small chunks of data that act as the smallest storage block on a PV.
+
+Volume Groups (VGs)
+Volume groups are storage pools that are made from one or more PVs. It is the functional equivalent of a whole disk in physical storage. A PV must be allocated only to a single VG
+
+Logical Volumes (LVs)
+Logical volumes are created from free physical extents in a VG, and are provided as the storage device for applications, users, and operating systems. LVs are a collection of Logical Extents (LEs), which map to physical extents. By default, each LE gets mapped to one PE. Setting specific LV options changes this mapping; for example, mirroring causes each LE to map to two PEs.
+
+
+
