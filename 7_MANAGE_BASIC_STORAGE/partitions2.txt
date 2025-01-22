@@ -7,7 +7,7 @@ parted /dev/vdb mklabel msdos/gpt
 MBR PARTITONS
 
 parted /dev/vdb
-#it open an interactive partition session
+#it opens an interactive partition session
 
 (parted) mkpart #subcommand to create a primary or extended partition
 (parted) partition type? primary or extendend
