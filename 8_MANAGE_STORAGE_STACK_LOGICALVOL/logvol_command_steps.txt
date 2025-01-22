@@ -11,3 +11,8 @@ pvcreate /dev/vdb1 /dev/vdb2
 
 vgcreate vg_name /dev/vdb1 /dev/vdb2
 
+
+3 Create the logical volumes from the available space in the volume group.
+(set the size)
+
+lvcreate lv_name -L 500MB vg_name
