@@ -15,4 +15,15 @@ Logical Volumes (LVs)
 Logical volumes are created from free physical extents in a VG, and are provided as the storage device for applications, users, and operating systems. LVs are a collection of Logical Extents (LEs), which map to physical extents. By default, each LE gets mapped to one PE. Setting specific LV options changes this mapping; for example, mirroring causes each LE to map to two PEs.
 
 
+PV
+sono i dischi fisici o le loro partizioni usati come base per il sistema di gestione dei volumi logici. 
+Servono per creare un pool di spazio su disco da cui si possono creare i volumi logici.
+Pool di spazio, area di archiviazione combinata che unisce lo spazio disponibile di uno o più dischi o partizioni.
 
+VG
+area di archiviazione formato da uno o più PV, dai VG vengono creati i LV.
+Un PV può essere allocato solo in un VG.
+
+LV
+creato dal VG 
+Il file system viene montato sul logical volume.
