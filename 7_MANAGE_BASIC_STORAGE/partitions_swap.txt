@@ -1,0 +1,21 @@
+swap space, storage space used as virtual memory when ram is full
+
+to create swap space:
+
+parted /dev/vdb mkpart nome.swap linux-swap 1000MB 1500MB
+
+
+once you create swap space you have to initialize it and enable it
+
+mkpart /dev/vdb1 #to inizialize
+
+swapon /dev/vdb1 #to enable swap space
+or 
+swapon -a #to enable all the swap spaces
+
+swapon --show #to check if it is enabled
+
+swapoff /dev/vdb1 #to disable swap space
+
+
+
