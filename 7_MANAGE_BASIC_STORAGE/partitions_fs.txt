@@ -1,0 +1,27 @@
+CREATE AND MOUNT FILE SYSTEM
+
+mkfs = make file system
+
+mkfs.xfs(or ext4) /dev/vdb1
+#to create the fs for the partition
+
+TO MOUNT THE FS WE HAVE TO CREATE A MOUNT POINT (DIRECTORY WERE THE FS IS AVAILABLE)
+mkdir /mnt
+
+THEN WE HAVE TO MOUNT THE FS ON THAT MOUNTPOINT 
+mount /mnt
+
+IMPORTANT
+When the system reoot it doesn't mount again the file system automatically.
+TO MOUNT THE FS PERSISTENTLY WE HAVE TO ADD THE PARTITION IN THE /etc/fstab FILE:
+vim /etc/fstab
+ADD THE ENTRY FOR THE NEW PARTITIONS AND FS:
+UUID=...uuid for the partition..... /mnt (mountpoint) xfs (fs type) defaults 0 0
+UUID=................ /mnt xfs defaults 0 0
+
+Important 
+AFTER UPDATING FSTAB WE HAVE TO RESTART THE DAEMON SYSTEMD
+systemctl restart daemon reload
+
+
+
