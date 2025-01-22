@@ -1,0 +1,4 @@
+CREATE AND EXTEND LOGICAL VOLUMES
+Use the Logical Volume Manager (LVM) system to create logical storage volumes as a layer on the physical storage. This storage system provides greater flexibility than using physical storage directly.
+
+
