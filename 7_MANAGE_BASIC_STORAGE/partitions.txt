@@ -8,4 +8,11 @@ It supports max 4 primary partitions. With extended and logical partitions, you 
 Since these limitations, these scheme is superseded by GPT scheme.
 
 GPT SCHEME (GUID Partition Table)
+It supports max 128 primary partitions.
 
+There are different partition editors:
+parted, standard editor
+fdisk, (changes are saved after command w)
+gdisk, interactive
+web console, easyer
+ansible, on a large scale
