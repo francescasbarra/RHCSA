@@ -3,6 +3,16 @@ CREATE A LOGICAL VOLUME
 1 Determine the physical devices that are used for creating physical volumes, and initialize these devices as LVM physical volumes.
 Create partitions or if you already have them initialize them as PHYSICAL VOLUME (you can initialize more partitions on the same command).
 
+
+Important first you have to set partition as LVM type, then create PV
+
+ex. use parted /dev/vdb print to check the partitions
+use the number of the partitions es the first and the second (1 and 2) and write:
+
+parted /dev/vdb set 1 lvm on
+parted /dev/vdb set 2 lvm on
+
+
 pvcreate /dev/vdb1 /dev/vdb2
 
 
