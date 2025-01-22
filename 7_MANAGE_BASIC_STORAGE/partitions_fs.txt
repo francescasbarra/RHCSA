@@ -23,5 +23,7 @@ Important
 AFTER UPDATING FSTAB WE HAVE TO RESTART THE DAEMON SYSTEMD
 systemctl restart daemon reload
 
+When you add or remove an entry in the /etc/fstab file, run the systemctl daemon-reload command, or reboot the server, to ensure that the systemd daemon loads and uses the new configuration.
+
 
 
