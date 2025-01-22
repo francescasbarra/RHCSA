@@ -1,2 +1,5 @@
-Partitions 
+PARTITIONS 
+Disk partitioning divides a hard drive into multiple logical storage partitions.You can use partitions to divide storage based on different requirements, and this division provides many benefits.
+
+MBR PARTITION SCHEME
 
