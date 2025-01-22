@@ -1,0 +1,25 @@
+add and enable port 82 to httpd
+
+check in the file /etc/httpd/conf/httpd.conf the entry "Listen"
+set Listen=82
+
+after change RESTART  httpd.service
+systemctl restart httpd.service
+
+
+semanage port -l | http
+to check the ports of the context http_port_t
+
+semanage port -a -t http_port_t -p tcp 82
+to add port 82 to context http_port_t
+
+check again by listing with semanage port -l ...
+
+then restart and enable httpd service
+systemctl restart httpd.service
+systemctl enable --now httpd.service
+
+to check httpd is serving on port 82
+curl localhost:82
+
+
