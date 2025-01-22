@@ -3,6 +3,7 @@ CREATE A LOGICAL VOLUME
 1 Determine the physical devices that are used for creating physical volumes, and initialize these devices as LVM physical volumes.
 Create partitions or if you already have them initialize them as PHYSICAL VOLUME (you can initialize more partitions on the same command).
 
+Important once you create partitions always run UDEVADM SETTLE command.
 
 Important first you have to set partition as LVM type, then create PV
 
@@ -15,14 +16,17 @@ parted /dev/vdb set 2 lvm on
 
 pvcreate /dev/vdb1 /dev/vdb2
 
-
+------------------------------
 
 2 Create a volume group from multiple physical volumes.
 
 vgcreate vg_name /dev/vdb1 /dev/vdb2
 
+------------------------------
 
 3 Create the logical volumes from the available space in the volume group.
 (set the size)
 
 lvcreate lv_name -L 500MB vg_name
+
+------------------------------
