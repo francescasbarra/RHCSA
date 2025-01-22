@@ -30,3 +30,13 @@ mkfs
 
 mountpoint
 #location where we have to mount the file system
+
+/etc/fstab
+#file system table - configuration file for file system (every time we update it we have to restart the daemon systemd (systemctl daemon-reload))
+
+
+mount /mnt
+#to mount the fs on that directory
+
+mount -av
+#to mount the correct file system in the fstab, it mount automatically the ones not mounted yet.

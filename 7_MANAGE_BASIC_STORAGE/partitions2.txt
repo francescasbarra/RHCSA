@@ -1,0 +1,38 @@
+parted /dev/vdb print
+#to show partitions table of /dev/vdb disk
+
+parted /dev/vdb mklabel msdos/gpt
+#To partition a new drive, first write a disk label. The disk label indicates which partitioning scheme to use (msdos or gpt)
+
+MBR PARTITONS
+
+parted /dev/vdb
+#it open an interactive partition session
+
+(parted) mkpart #subcommand to create a primary or extended partition
+(parted) partition type? primary or extendend
+(parted) file system type? xfs or ext4
+(parted) size start 2048s
+(parted) size end 1000MB
+(parted) quit
+
+#As an alternative to interactive mode, you can create a partition in a single command:
+parted /dev/vdb mkpart primary xfs 2048s 1000MB
+
+
+
+GPT PARTITIONS
+You have to use the same steps but instead to choose between primary/extended you have to set a name for the partitions.
+In a single command:
+parted /dev/vdb mkpart part1 xfs 2048s 1000M
+
+Important
+When you provide the end position, the parted command updates the partition table on the disk with the new partition details.
+IMPORTANT
+Once you create the partition you have to use the command
+udevadm settle
+to register/save the partition
+
+TO REMOVE PARTITION
+check with parted /dev/vdb print the numer of the partition and then remove
+parted /dev/vdb1 rm 1
