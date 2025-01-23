@@ -1,0 +1,5 @@
+student@servera
+sudo su -
+root@servera
+
+
