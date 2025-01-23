@@ -83,3 +83,18 @@ Create the /data directory as a mount point.
 [root@servera ~]# mkdir /data
 
 ---------------
+
+To persistently mount the newly created file system, add the following content in the /etc/fstab file:
+
+/dev/servera_group/servera_volume /data xfs defaults 0 0
+
+--------------
+
+Mount the servera_volume LV.
+
+[root@servera ~]# mount /data
+
+---------------
+
+
+
