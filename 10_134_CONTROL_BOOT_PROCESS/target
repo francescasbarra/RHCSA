@@ -1,0 +1,16 @@
+I target in systemd sono come dei "profili" o "stati" di avvio del sistema. Servono a definire quali servizi, risorse e impostazioni devono essere attivi in un determinato momento.
+
+Ogni target rappresenta un insieme di unità (servizi, mount, socket, ecc.) che devono essere avviate per raggiungere un certo obiettivo. 
+Ad esempio, puoi pensare a un target come a un "livello di funzionamento" del sistema.
+
+Ecco alcuni esempi comuni di target:
+
+graphical.target: È usato per avviare il sistema con l'interfaccia grafica (ad esempio, un ambiente desktop come GNOME o KDE).
+
+multi-user.target: Serve per avviare il sistema in modalità multiutente, ma senza interfaccia grafica (solo terminale).
+
+rescue.target: Avvia il sistema in modalità di recupero (simile alla modalità single-user), utile per manutenzione e riparazione.
+
+emergency.target: Avvia il sistema in modalità minima, caricando solo i file di base necessari per accedere al sistema.
+
+default.target: È il target che il sistema avvia di default quando si accende. Solitamente è impostato su graphical.target o multi-user.target.
