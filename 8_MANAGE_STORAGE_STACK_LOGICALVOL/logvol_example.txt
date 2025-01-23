@@ -2,4 +2,84 @@ student@servera
 sudo su -
 root@servera
 
+Create the physical device partition on the /dev/vdb storage device.
 
+Create two partitions of 256 MiB each and set to the Linux LVM type. Use the first and second names for these partitions.
+
+[root@servera ~]# parted /dev/vdb mklabel gpt
+Information: You may need to update /etc/fstab.
+
+[root@servera ~]# parted /dev/vdb mkpart first 1MiB 258MiB
+Information: You may need to update /etc/fstab.
+
+[root@servera ~]# parted /dev/vdb set 1 lvm on
+Information: You may need to update /etc/fstab.
+
+[root@servera ~]# parted /dev/vdb mkpart second 258MiB 514MiB
+Information: You may need to update /etc/fstab.
+
+[root@servera ~]# parted /dev/vdb set 2 lvm on
+Information: You may need to update /etc/fstab.
+
+
+-----------------
+
+Register the new partitions with the kernel.
+
+[root@servera ~]# udevadm settle
+
+----------------
+
+List the partitions on the /dev/vdb storage device. In the Number column, the 1 and 2 values correspond to the /dev/vdb1 and /dev/vdb2 device partitions. The Flags column indicates the partition type.
+
+[root@servera ~]# parted /dev/vdb print
+Model: Virtio Block Device (virtblk)
+Disk /dev/vdb: 5369MB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags:
+
+Number  Start   End    Size   File system  Name    Flags
+ 1      1049kB  271MB  269MB               first   lvm
+ 2      271MB   539MB  268MB               second  lvm
+
+
+--------------------
+
+Label the two new partitions as physical volumes.
+
+[root@servera ~]# pvcreate /dev/vdb1 /dev/vdb2
+  Physical volume "/dev/vdb1" successfully created.
+  Physical volume "/dev/vdb2" successfully created.
+  Creating devices file /etc/lvm/devices/system.devices
+Create the servera_group volume group by using the two new PVs.
+
+
+-------------------
+
+[root@servera ~]# vgcreate servera_group /dev/vdb1 /dev/vdb2
+  Volume group "servera_group" successfully created
+
+------------------
+
+
+Create the servera_volume logical volume with a size of 400 MiB. This command creates the /dev/servera_group/servera_volume LV without a file system.
+
+[root@servera ~]# lvcreate -n servera_volume -L 400M servera_group
+  Logical volume "servera_volume" created.
+Format the newly created LV and mount it persistently.
+
+-----------------
+
+Format the servera_volume LV with the XFS file system.
+
+[root@servera ~]# mkfs -t xfs /dev/servera_group/servera_volume
+...output omitted...
+
+----------------
+
+Create the /data directory as a mount point.
+
+[root@servera ~]# mkdir /data
+
+---------------
