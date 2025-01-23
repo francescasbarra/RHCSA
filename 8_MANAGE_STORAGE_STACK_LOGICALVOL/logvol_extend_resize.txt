@@ -15,5 +15,12 @@ lvextend -L 500M /dev/vg_name/lv_name
 
 -----------------------
 
+to extend the fs to LV dimension
 
+xfs_growfs /mountpoint
 
+for ext4 fs the procedure is the same to increase size
+to reduce size you have to write:
+resize2fs /dev/vg_name/lv_name
+
+-----------------------
