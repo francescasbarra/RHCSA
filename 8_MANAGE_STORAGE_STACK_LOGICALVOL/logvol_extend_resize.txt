@@ -1,3 +1,19 @@
 EXTEND AND REDUCE LVM STORAGE
 
+After creating a logical volume, you can extend the volume to expand the file system. You might need to extend PV or VG to increase the storage capacity of the LV.
+
+
+to add other partitions to the volume group:
+
+vgextend vg_name /dev/vdb3
+
+-----------------------
+
+to extend a logical volume
+
+lvextend -L 500M /dev/vg_name/lv_name
+
+-----------------------
+
+
 
