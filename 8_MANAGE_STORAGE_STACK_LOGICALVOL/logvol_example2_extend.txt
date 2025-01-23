@@ -1,0 +1,35 @@
+Create the physical resource on the /dev/vdb storage device.
+
+Create an additional partition of 512 MiB and set it to the Linux LVM type. Use the third name for this partition.
+
+[root@servera ~]# parted /dev/vdb mkpart third 514MiB 1026MiB
+[root@servera ~]# parted /dev/vdb set 3 lvm on
+
+------------------
+
+Register the new partition with the kernel.
+
+[root@servera ~]# udevadm settle
+
+--------------------
+
+Add the new partition as a PV.
+
+[root@servera ~]# pvcreate /dev/vdb3
+  Physical volume "/dev/vdb3" successfully created.
+Using the newly created disk space, extend the file system on the servera_volume to be a total size of 700 MiB.
+
+Extend the servera_group VG by using the new /dev/vdb3 PV.
+
+[root@servera ~]# vgextend servera_group /dev/vdb3
+  Volume group "servera_group" successfully extended
+Extend the existing servera_volume LV to 700 MiB.
+
+[root@servera ~]# lvextend -L 700M /dev/servera_group/servera_volume
+  Size of logical volume servera_group/servera_volume changed from 400.00 MiB (100 extents) to 700.00 MiB (175 extents).
+  Logical volume servera_group/servera_volume successfully resized.
+Extend the XFS file system by using the free space on the LV.
+
+[root@servera ~]# xfs_growfs /data
+...output omitted...
+data blocks changed from 102400 to 179200
