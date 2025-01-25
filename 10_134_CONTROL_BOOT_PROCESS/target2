@@ -1,10 +1,40 @@
-Select a Target at Runtime
+SELECT A TARGET AT RUNTIME
 
 On a running system, administrators can switch to a different target by using the systemctl isolate command.
 
 [root@host ~]# systemctl isolate multi-user.target
 
 Isolating a target stops all services that the target does not require (and its dependencies), and starts any required services that are not yet started.
+
+Not all targets can be isolated. You can isolate only targets where AllowIsolate=yes is set in their unit files
+
+[user@host ~]$ systemctl cat graphical.target
+# /usr/lib/systemd/system/graphical.target
+...output omitted...
+[Unit]
+Description=Graphical Interface
+Documentation=man:systemd.special(7)
+Requires=multi-user.target
+Wants=display-manager.service
+Conflicts=rescue.service rescue.target
+After=multi-user.target rescue.service rescue.target display-manager.service
+AllowIsolate=yes
+
+--------
+
+SET A DEFAULT TARGET
+
+When the system starts, the systemd unit activates the default.target target. Normally, the default target the /etc/systemd/system/ directory is a symbolic link to either the graphical.target or the multi-user.target targets. Instead of editing this symbolic link by hand, the systemctl command provides two subcommands to manage this link: get-default and set-default.
+
+[root@host ~]# systemctl get-default
+multi-user.target
+
+[root@host ~]# systemctl set-default graphical.target
+Removed /etc/systemd/system/default.target.
+Created symlink /etc/systemd/system/default.target -> /usr/lib/systemd/system/graphical.target.
+
+[root@host ~]# systemctl get-default
+graphical.target
 
 --------
 
