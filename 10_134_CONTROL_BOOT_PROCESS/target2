@@ -1,0 +1,11 @@
+Select a Target at Runtime
+
+On a running system, administrators can switch to a different target by using the systemctl isolate command.
+
+[root@host ~]# systemctl isolate multi-user.target
+
+Isolating a target stops all services that the target does not require (and its dependencies), and starts any required services that are not yet started.
+
+--------
+
+
