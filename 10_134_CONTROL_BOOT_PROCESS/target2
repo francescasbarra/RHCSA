@@ -38,4 +38,26 @@ graphical.target
 
 --------
 
+Select a Different Target at Boot Time
+To select a different target at boot time, append the systemd.unit=target.target option to the kernel command line from the boot loader.
 
+For example, to boot the system into a rescue shell where you can change the system configuration with almost no services running, append the following option to the kernel command line from the boot loader:
+
+systemd.unit=rescue.target
+This configuration change affects only a single boot, and is a useful tool to troubleshoot the boot process.
+
+To use this method to select a different target, use the following procedure:
+
+Boot or reboot the system.
+
+Interrupt the boot loader menu countdown by pressing any key (except Enter, which would initiate a normal boot).
+
+Move the cursor to the kernel entry to start.
+
+Press e to edit the current entry.
+
+Move the cursor to the line that starts with linux which is the kernel command line.
+
+Append systemd.unit=target.target, for example, systemd.unit=emergency.target.
+
+Press Ctrl+x to boot with these changes.
