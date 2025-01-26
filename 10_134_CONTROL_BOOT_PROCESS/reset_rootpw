@@ -41,7 +41,8 @@ sh-5.1# passwd root
 Ensure that all unlabeled files, including /etc/shadow at this point, get relabeled during boot.
 
 sh-5.1# touch /.autorelabel
-Type exit twice. The first command exits the chroot jail, and the second command exits the initramfs debug shell.
+
+Then Type exit twice. The first command exits the chroot jail, and the second command exits the initramfs debug shell.
 
 At this point, the system continues booting, performs a full SELinux relabeling, and then reboots again.
 
