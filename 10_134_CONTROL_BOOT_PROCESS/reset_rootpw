@@ -21,6 +21,8 @@ To access that root shell, follow these steps:
 8 Press Enter to perform maintenance when prompted.
 
 
+At this point, the system presents a root shell, and the root file system on the disk is mounted read-only on /sysroot. Because troubleshooting often requires modifying the root file system, you must remount the root file system as read/write. The following step shows how the remount,rw option to the mount command remounts the file system where the new option (rw) is set.
+
 -------------------------------------
 
 Important 2nd part to RESET ROOT PASSWORD
