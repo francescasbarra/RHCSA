@@ -19,3 +19,28 @@ To access that root shell, follow these steps:
 7 Press Ctrl+x to boot with the changes.
 
 8 Press Enter to perform maintenance when prompted.
+
+
+-------------------------------------
+
+Important 2nd part to RESET ROOT PASSWORD
+
+To reset the root password, use the following procedure:
+
+Remount /sysroot as read/write.
+
+sh-5.1# mount -o remount,rw /sysroot
+Switch into a chroot jail, where /sysroot is treated as the root of the file-system tree.
+
+sh-5.1# chroot /sysroot
+Set a new root password.
+
+sh-5.1# passwd root
+Ensure that all unlabeled files, including /etc/shadow at this point, get relabeled during boot.
+
+sh-5.1# touch /.autorelabel
+Type exit twice. The first command exits the chroot jail, and the second command exits the initramfs debug shell.
+
+At this point, the system continues booting, performs a full SELinux relabeling, and then reboots again.
+
+
