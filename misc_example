@@ -1,0 +1,14 @@
+configure recommended tuned profile
+
+dnf install tuned #if not installed
+
+tuned-adm list #list all the available profiles
+tuned-adm active #to show the current active profile
+tuned-adm recommend #to check the recommended profile
+tuned-adm profile_info virtual-guest #to show information about a specified profile
+tuned-adm profile virtual-guest #to set a different profile
+
+
+-------------------
+
+
