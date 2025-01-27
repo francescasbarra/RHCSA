@@ -17,16 +17,24 @@ SCRIPT THAT PRINT A MESSAGE WHEN LOGGED IN AS A SPECIFIC USER (CLAFRA IN THE EXA
 [root@node1 ~]# passwd clafra
 Changing password for user clafra.
 
-[root@node1 ~]# vim /usr/local/bin/hello #to create the script
+[root@node1 ~]# vim /usr/local/bin/hello        #to create the script
 
 #! /bin/bash
-
 echo "Welcome user clafra!"
 
 
+[root@node1 ~]# chmod 755 /usr/local/bin/clafra      #to give permission to execute the script to the user 
 
-[root@node1 ~]# chmod 755 /usr/local/bin/clafra #to give permission to execute the script to the user 
-[root@node1 ~]# vim /home/clafra/.bashrc
-[root@node1 ~]# su - clafra
-welcome panciolliniiii!
+[root@node1 ~]# vim /home/clafra/.bashrc   #we have to add the script to clafra shell
+
+"output omitted"
+/usr/local/bin/hello
+
+
+[root@node1 ~]# su - clafra   #login as clafra user and you will see the message
+Welcome user clafra!
 [clafra@node1 ~]$
+
+-------------------
+
+
