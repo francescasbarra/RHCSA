@@ -11,4 +11,15 @@ tuned-adm profile virtual-guest #to set a different profile
 
 -------------------
 
+SCRIPT THAT PRINT A MESSAGE WHEN LOGGED IN AS A SPECIFIC USER (CLAFRA IN THE EXAMPLE)
 
+[root@node1 ~]# useradd clafra
+[root@node1 ~]# passwd clafra
+Changing password for user clafra.
+
+[root@node1 ~]# vim /usr/local/bin/hello
+[root@node1 ~]# chmod 755 /usr/local/bin/picios
+[root@node1 ~]# vim /home/clafra/.bashrc
+[root@node1 ~]# su - clafra
+welcome panciolliniiii!
+[clafra@node1 ~]$
