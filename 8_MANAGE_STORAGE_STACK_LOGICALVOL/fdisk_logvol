@@ -73,4 +73,10 @@ Syncing disks.
 
 [root@node2 ~]# udevadm settle
 
+
 -----------------------------------
+
+
+CREATE LV WITH FDISK
+
+
