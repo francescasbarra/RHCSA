@@ -74,5 +74,8 @@ crontab -l -u user #to list user crontab
 
 -------------------
 
+setfacl -m u:fra:rwx /home/foto #to set permission for a specific user for a specific dir/file
+getfacl /home/foto   #to check permission of a specific file/dir
 
+-------------------
 
