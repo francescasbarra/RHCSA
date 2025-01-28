@@ -47,4 +47,19 @@ logout
 
 -------------------
 
-JJjj
+CREATE A REPOSITORY
+
+root:
+vim /etc/yum.repos.d/repository-name.repo
+
+[base]
+name=BaseOs (example)
+baseurl=www....
+gpgcheck=0
+enable=1
+
+dnf repolist #to list all repository
+
+-------------------
+
+
