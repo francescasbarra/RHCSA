@@ -1,0 +1,83 @@
+node1 = server dove è installato autofs
+
+workbench = server dove è installato nfs-server, che esporta la cartella
+/home/guests verso node1
+
+-----------
+
+[root@node1 ~]# mkdir -m 777 francesca
+
+[root@node1 ~]# useradd francesca
+-----------
+
+[root@workbench ~]# cd /home/guests/
+[root@workbench guests]# mkdir -m 777 francesca
+[root@workbench guests]# ll
+total 0
+drwxrwxrwx. 2 root root 26 Jan 28 21:03 caciotto
+drwxrwxrwx. 2 root root  6 Jan 28 21:20 francesca
+drwxrwxrwx. 2 root root 40 Jan 26 16:51 netuser1
+drwxrwxrwx. 2 root root 18 Jan 28 19:39 picios
+
+------
+
+[root@node1 ~]# vim /etc/auto.master
+
+#
+# Sample auto.master file
+# This is a 'master' automounter map and it has the following format:
+# mount-point [map-type[,format]:]map [options]
+# For details of the format look at auto.master(5).
+#
+/misc   /etc/auto.misc
+/netdir /etc/auto.misc
+/dir1 /etc/auto2.misc
+/canciotto /etc/auto3.misc
+
+/francesca /etc/auto4.misc          ### AGGIUNGI QUESTA NUOVA REGOLA
+
+[root@node1 ~]# cp /etc/auto.misc /etc/auto4.misc
+[root@node1 ~]# vim /etc/auto4.misc
+
+#
+# This is an automounter map and it has the following format
+# key [ -mount-options-separated-by-comma ] location
+# Details may be found in the autofs(5) manpage
+
+cd              -fstype=iso9660,ro,nosuid,nodev :/dev/cdrom
+francesca       -fstype=nfs,rw,sync 10.128.0.3:/home/guests/francesca
+
+# the following entries are samples to pique your imagination
+#linux          -ro,soft                ftp.example.org:/pub/linux
+#boot           -fstype=ext2            :/dev/hda1
+#floppy         -fstype=auto            :/dev/fd0
+#floppy         -fstype=ext2            :/dev/fd0
+#e2floppy       -fstype=ext2            :/dev/fd0
+#jaz            -fstype=ext2            :/dev/sdc1
+#removable      -fstype=ext2            :/dev/hdd
+~
+[root@node1 ~]# systemctl restart autofs.service
+[root@node1 ~]# systemctl status autofs.service
+
+-----------
+
+[root@workbench guests]# touch francesca/fra-test.txt
+[root@workbench guests]# ll
+total 0
+drwxrwxrwx. 2 root root 26 Jan 28 21:03 caciotto
+drwxrwxrwx. 2 root root 26 Jan 28 21:27 francesca
+drwxrwxrwx. 2 root root 40 Jan 26 16:51 netuser1
+drwxrwxrwx. 2 root root 18 Jan 28 19:39 picios
+[root@workbench guests]# chmod -R 777 francesca/
+
+----------
+
+[root@node1 ~]# su - francesca
+Last login: Tue Jan 28 21:22:51 UTC 2025 on pts/2
+[francesca@node1 ~]$ cd /francesca/francesca
+[francesca@node1 francesca]$ ll
+total 0
+-rwxrwxrwx. 1 root root 0 Jan 28 21:27 fra-test.txt
+[francesca@node1 francesca]$
+
+
