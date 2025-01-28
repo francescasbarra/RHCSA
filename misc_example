@@ -37,4 +37,14 @@ Welcome user clafra!
 
 -------------------
 
+SET HOSTNAME
 
+[root@instance-20250106-161949 ~]# hostnamectl set-hostname node1
+[root@instance-20250106-161949 ~]# exit
+logout
+[francesca_sbarra87@instance-20250106-161949 ~]$ sudo -i
+[root@node1 ~]#
+
+-------------------
+
+JJjj
