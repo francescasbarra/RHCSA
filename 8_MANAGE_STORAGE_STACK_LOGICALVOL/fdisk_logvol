@@ -86,3 +86,5 @@ vgcreate -s 8M wgroup /dev/sdb1
 lvcreate -n wshare -l 50 /dev/wgroup
 
 ----------------------------------
+
+

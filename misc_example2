@@ -1,0 +1,10 @@
+Create a tar archive of "/etc/" Directory with .bzip
+2 extension. Tar archive named "myetcbackup.tar" should be placed in "/root/" Directory.
+
+root home:
+tar -cvjf myetcbackup.tar.bz2 /etc
+
+
+-----------------------------
+
+
