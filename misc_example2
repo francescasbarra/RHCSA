@@ -4,6 +4,9 @@ Create a tar archive of "/etc/" Directory with .bzip
 root home:
 tar -cvjf myetcbackup.tar.bz2 /etc
 
+tar -tf myetcbackup.tar.bz2 #to list the tar archive
+
+tar -xf myetcbackup.tar.bz2 #to extract the archive
 
 -----------------------------
 
