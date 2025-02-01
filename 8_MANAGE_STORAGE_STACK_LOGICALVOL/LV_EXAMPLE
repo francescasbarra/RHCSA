@@ -1,0 +1,15 @@
+CREATE PARTITIONS
+
+gdisk /dev/vdb
+n (new partition)
+size ...
+t (to change type of partition... 83 linux file system (xfs/ext4), 82 swap, 8e lvm)
+p (to print partitions)
+c (to assign a name to the partitions)
+w Important (to save changes)
+
+udevadm settle
+
+-------------------
+
+
