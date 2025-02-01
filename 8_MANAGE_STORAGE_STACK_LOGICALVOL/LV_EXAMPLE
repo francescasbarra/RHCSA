@@ -20,6 +20,28 @@ vgcreate vgroup /dev/vdb1 /dev/vdb2
 
 lvcreate -n lvolume -L 500MB /dev/vgroup/lvolume
 
+------------------
+
+EXTEND LV
+
+lvextend -r -L 300 /dev/vgroup/lvolume
+or
+lvextend -L 300 /dev/vgroup/lvolume
+then
+xfs_growfs /dev/vgroup/lvolume
+
+--------
+
+REDUCE LV
+
+important first you have to unmount the file system
+umount /mountpoint
+
+then reduce first the file system
+resize2fs /dev/vgroup
+
+then reduce lv
+lvreduce -L -100MB /dev/vgroup/lvolume
 MOUNT FS ON THE LV
 
 mkfs.xfs /dev/vgroup/lvolume
