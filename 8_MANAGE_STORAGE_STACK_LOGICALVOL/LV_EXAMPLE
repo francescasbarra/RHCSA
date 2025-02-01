@@ -22,12 +22,12 @@ lvcreate -n lvolume -L 500MB /dev/vgroup/lvolume
 
 MOUNT FS ON THE LV
 
-mkfs.xfs /dev/wgroup/lvolume
+mkfs.xfs /dev/vgroup/lvolume
 
 mkdir /mountpoint
 
 vim /etc/fstab (to make fs persistent)
-   /dev/wgroup/lvolume /mountpoint xfs/ext4 defaults 0 0
+   /dev/vgroup/lvolume /mountpoint xfs/ext4 defaults 0 0
 
 systemctl daemon-reload
 
