@@ -87,4 +87,12 @@ lvcreate -n wshare -l 50 /dev/wgroup   # -l to specify number of extents, -L to 
 
 ----------------------------------
 
+EXTEND AND REDUCE LV
 
+TO EXTEND
+
+lvextend -r -L 300MB /dev/wgroup/wshare (-r to modify the fs at the same time)
+
+to extend manually fs:
+lvextend -L 300MB /dev/wgroup/wshare (only the size, you can write the new total or write the addition -L +/-100MB
+then
