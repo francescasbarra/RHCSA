@@ -96,3 +96,9 @@ lvextend -r -L 300MB /dev/wgroup/wshare (-r to modify the fs at the same time)
 to extend manually fs:
 lvextend -L 300MB /dev/wgroup/wshare (only the size, you can write the new total or write the addition -L +/-100MB
 then
+xfs.growfs /dev/wgroup/wshare (for xfs file system)
+or
+resize2fs
+xfs.growfs /dev/wgroup/wshare (for xfs file system)
+or
+resize2fs   
