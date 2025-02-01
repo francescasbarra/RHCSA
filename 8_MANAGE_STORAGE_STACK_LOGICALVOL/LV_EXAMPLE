@@ -28,7 +28,7 @@ lvextend -r -L 300 /dev/vgroup/lvolume
 or
 lvextend -L 300 /dev/vgroup/lvolume
 then
-xfs_growfs /dev/vgroup/lvolume  for xfs (MOUNTPOINT invece del lv??)
+xfs_growfs /mountpoint
 resize2fs /dev/vgroup/lvolume  for ext4
 
 Important xfs SUPPORTS ONLY EXPANSION NOT REDUCTION
@@ -41,7 +41,7 @@ important first you have to unmount the file system
 umount /mountpoint
 
 then reduce first the file system
-resize2fs /dev/vgroup
+resize2fs /dev/vgroup 300MB
 
 then reduce lv
 lvreduce -L -100MB /dev/vgroup/lvolume
