@@ -31,6 +31,8 @@ then
 xfs_growfs /dev/vgroup/lvolume  for xfs (MOUNTPOINT invece del lv??)
 resize2fs /dev/vgroup/lvolume  for ext4
 
+Important xfs SUPPORTS ONLY EXPANSION NOT REDUCTION
+
 --------
 
 REDUCE LV
