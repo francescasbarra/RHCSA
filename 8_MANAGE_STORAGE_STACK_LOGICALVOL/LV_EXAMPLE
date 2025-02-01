@@ -28,7 +28,8 @@ lvextend -r -L 300 /dev/vgroup/lvolume
 or
 lvextend -L 300 /dev/vgroup/lvolume
 then
-xfs_growfs /dev/vgroup/lvolume
+xfs_growfs /dev/vgroup/lvolume  for xfs (MOUNTPOINT invece del lv??)
+resize2fs /dev/vgroup/lvolume  for ext4
 
 --------
 
