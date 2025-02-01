@@ -12,4 +12,27 @@ udevadm settle
 
 -------------------
 
+CREATE PHYSICAL VOLUME, VOLUME GROUP, LOGICAL VOLUME
+
+pvcreate /dev/vdb1 /dev/vdb2
+
+vgcreate vgroup /dev/vdb1 /dev/vdb2
+
+lvcreate -n lvolume -L 500MB /dev/vgroup/lvolume
+
+MOUNT FS ON THE LV
+
+mkfs.xfs /dev/wgroup/lvolume
+
+mkdir /mountpoint
+
+vim /etc/fstab (to make fs persistent)
+   /dev/wgroup/lvolume /mountpoint xfs/ext4 defaults 0 0
+
+systemctl daemon-reload
+
+mount /mountpoint  (or mount -a)
+
+-------------------
+
 
