@@ -83,7 +83,7 @@ pvcreate /dev/sdb1
 
 vgcreate -s 8M wgroup /dev/sdb1
 
-lvcreate -n wshare -l 50 /dev/wgroup
+lvcreate -n wshare -l 50 /dev/wgroup   # -l to specify number of extents, -L to specify size MB, GB
 
 ----------------------------------
 
