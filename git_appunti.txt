@@ -27,3 +27,7 @@ git pull
 git checkout origin/main -- Containers_concepts.txt
 #to download a single file from the repository
 
+steps:
+git add .
+git commit -m "comment to the commit"
+git push
