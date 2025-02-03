@@ -24,11 +24,11 @@ lvcreate -n lvolume -L 500MB /dev/vgroup/lvolume
 
 EXTEND LV
 
-lvextend -r -L 300 /dev/vgroup/lvolume
+lvextend -r -L 300 /dev/vgroup/lvolume  # -r extends the file system at the same time 
 or
 lvextend -L 300 /dev/vgroup/lvolume
 then
-xfs_growfs /mountpoint
+xfs_growfs /mountpoint         for xfs
 resize2fs /dev/vgroup/lvolume  for ext4
 
 Important xfs SUPPORTS ONLY EXPANSION NOT REDUCTION
