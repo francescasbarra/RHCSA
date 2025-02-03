@@ -40,6 +40,10 @@ REDUCE LV
 important first you have to unmount the file system
 umount /mountpoint
 
+important check, integrity and errors check
+e2fsck -f /dev/wgroup/wshare 
+
+
 then reduce first the file system
 resize2fs /dev/vgroup 300MB
 
