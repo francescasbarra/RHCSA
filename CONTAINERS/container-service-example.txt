@@ -3,7 +3,7 @@ root #create an user and set password
 useradd user1
 passwd user1 
 
-ssh user1@server
+ssh user1@server Important SSH ACCESS TO THE USER
 user1
 loginctl enable-linger #to enable to start the service at boot// loginctl show-user user1 #to verify if set "linger=yes" you can do loginctl enable-linger before or after creating container
 
