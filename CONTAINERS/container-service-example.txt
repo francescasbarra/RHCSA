@@ -5,11 +5,14 @@ passwd user1
 
 ssh user1@server Important SSH ACCESS TO THE USER
 user1
-loginctl enable-linger #to enable to start the service at boot// loginctl show-user user1 #to verify if set "linger=yes" you can do loginctl enable-linger before or after creating container
+
+Important
+loginctl enable-linger #to enable to start the service at boot
+loginctl show-user user1 #to verify if set "linger=yes" you can do loginctl enable-linger before or after creating container
 
 mkdir mycontainer #create a directory - to mount the VM/host directory into the container to provide persistent storage on the directory of the container.
 cd mycontainer
-[user1@server mycontainer..] podman run -d --name container -v /home/user1/mycontainer:/mycontainer:Z localost/myimage:v1
+[user1@server mycontainer..] podman run -d --name container -v /home/user1/mycontainer:/mycontainer:Z localost/myimage:v1  #important TO CREATE A CONTAINER
 
 cd ..
 [user1@server] mkdir -p .config/systemd/user #to create dir to define systemd services
