@@ -25,7 +25,7 @@ Error: not logged into quay.io
 
 CONFIGURE CONTAINER REGISTRIES
 
-The default configuration file for container registries is the /etc/containers/registries.conf file.
+Important The default configuration file for container registries is the /etc/containers/registries.conf file.
 
 #If you do not specify the fully qualified name of the container image when using podman commands, then the list of registries in the unqualified-search-registries section of this file is used to search for the container image.
 
