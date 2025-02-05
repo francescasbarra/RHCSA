@@ -27,7 +27,7 @@ podman stop container
 podman rm container
 podman ps -a #to verify the container is deleted
 
-systemctl --user enable --now container.container.service 
-#to enable/start the container as a service (the container service name is aleays container-containerNAME.service)
-systemctl --user status container.container.service 
+systemctl --user enable --now container-container.service 
+#to enable/start the container as a service (the container service name is always container-containerNAME.service)
+systemctl --user status container-container.service 
 #to verify the service is active/running
