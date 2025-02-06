@@ -1,0 +1,29 @@
+IMPORTANT set off selinux and firewall to exercise
+
+
+[root@node2 ~]# useradd picios
+[root@node2 ~]# passwd picios
+
+[root@node2 ~]# mkdir -m 777 cartpicios
+[root@node2 ~]# vim /etc/auto.master
+
+.....
+/cartpicios /etc/auto.picios
+
+
+[root@node2 ~]# vim /etc/auto.picios
+
+picios -fstype=nfs,rw,sync 10.128.0.3:/home/guests/picios
+
+
+
+
+[root@node2 ~]# systemctl restart autofs.service
+[root@node2 ~]# systemctl enable --now autofs.service
+[root@node2 ~]# su - picios
+[picios@node2 ~]$ cd /cartpicios/picios
+[picios@node2 picios]$ ll
+total 0
+-rwxrwxrwx. 1 root root 0 Jan 28 19:39 ciop
+[picios@node2 picios]$
+
