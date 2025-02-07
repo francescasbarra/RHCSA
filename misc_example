@@ -65,7 +65,7 @@ dnf repolist #to list all repository
 CRONTAB
 
 root 
-crontab -e -u user #to create crontab for a specific user
+crontab -e -u user #to create crontab for a specific user (also -eu)
 
 example 
 */1 * * * * logger "test"
