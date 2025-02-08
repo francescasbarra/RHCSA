@@ -23,3 +23,5 @@ to check httpd is serving on port 82
 curl localhost:82
 
 
+To delete the port
+semanage port -d -t http_port_t -p tcp 82
