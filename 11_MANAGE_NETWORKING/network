@@ -3,3 +3,18 @@ to show all the information about the network connection
 
 nmcli con show | grep -i dns
 to show
+
+
+nmcli con down "profile_name" #to deactivate the profile
+
+nmcli con up "profile_name"   #to activate the profile
+
+
+Important PERMIT ROOT LOGIN
+
+FILE /etc/ssh/sshd_config
+
+grep -i -r -n permitrootlogin /etc/ssh/*  #to find all the occurrency for "permitrootlogin" in all the files in /etc/ssh/
+
+grep -i  #case insensitive -r #ricursive -n #to show the lines in the file 
+
