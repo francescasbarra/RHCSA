@@ -1,6 +1,11 @@
 nmcli con show 
 to show all the information about the network connection
 
+nmcli con show --active
+to show the active connections
+
+
+
 nmcli con show | grep -i dns
 to show
 
@@ -39,3 +44,8 @@ nmcli con show/add/mod/delete
 nmcli con add con-name "profile name" type ethernet ifname eno2
 con-name = connection name
 ifname = device name, network interface
+
+--------------------------
+
+nmcli dev status #to show the status  of all devices
+
