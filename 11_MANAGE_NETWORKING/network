@@ -20,3 +20,8 @@ grep -i  #case insensitive -r #ricursive -n #to show the lines in the file
 
 
 Important
+it could be useful to use the following command to deactivate/activate the connection straight away:
+
+nmcli con down "profile" && nmcli con up "profile"
+
+&& after the first command, if it gets through, it runs the second one
