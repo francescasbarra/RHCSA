@@ -33,3 +33,9 @@ ip addr show dev device_name - info about device and address
 ip - it shows info about devices and addresses
 ip link - it shows all the network devices and the status
 
+
+nmcli con show/add/mod/delete
+
+nmcli con add con-name "profile name" type ethernet ifname eno2
+con-name = connection name
+ifname = device name, network interface
