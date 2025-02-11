@@ -5,7 +5,7 @@ workbench = server dove è installato nfs-server, che esporta la cartella
 
 -----------
 
-[root@node1 ~]# mkdir -m 777 francesca
+[root@node1 ~]# mkdir -m 777 /francesca
 
 [root@node1 ~]# useradd francesca
 -----------
