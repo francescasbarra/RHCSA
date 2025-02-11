@@ -4,7 +4,7 @@ IMPORTANT set off selinux and firewall to exercise
 [root@node2 ~]# useradd picios
 [root@node2 ~]# passwd picios
 
-[root@node2 ~]# mkdir -m 777 cartpicios
+[root@node2 ~]# mkdir -m 777 /cartpicios  important /directory
 [root@node2 ~]# vim /etc/auto.master
 
 .....
