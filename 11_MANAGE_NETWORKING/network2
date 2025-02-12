@@ -1,0 +1,16 @@
+ifconfig.io         #to show public IP
+
+ip a 
+ip -br addr
+ip -br addr show    #to show private IP
+
+ip r                #to show gateway
+
+cat /etc/resolv.conf  #to show DNS
+nmcli con show "name connection" | grep DNS   (or | grep -i dns, case insensitive)
+
+nmcli con show "name connection" | grep GATEWAY
+
+
+nmcli dev show | grep DNS (or GATEWAY)
+
