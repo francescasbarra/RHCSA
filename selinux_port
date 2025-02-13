@@ -28,3 +28,7 @@ semanage port -d -t http_port_t -p tcp 82
 
 
 Important before adding the port with semanage we can also add it permanently to the firewall
+
+firewall-cmd --permanent --add-port=82/tcp
+firewall-cmd --reload
+firewall-cmd --list-all  #to check
