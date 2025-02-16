@@ -14,3 +14,7 @@ nmcli con show "name connection" | grep GATEWAY
 
 nmcli dev show | grep DNS (or GATEWAY)
 
+
+nmcli con up "profile name"    #to activate a connection
+
+nmcli con down "profile name"  #to deactivate a connection
