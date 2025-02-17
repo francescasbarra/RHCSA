@@ -1,4 +1,6 @@
 IMPORTANT set off selinux and firewall to exercise
+systemctl firewalld stop
+setenforce 0 #to disable selinux, getenforce to check seliux status
 
 
 [root@node2 ~]# useradd picios
