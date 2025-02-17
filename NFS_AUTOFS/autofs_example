@@ -3,6 +3,9 @@ node1 = server dove è installato autofs
 workbench = server dove è installato nfs-server, che esporta la cartella
 /home/guests verso node1
 
+Important: su NFS server è intallato il pacchetto nfs-utils (il servizio è nfs-server.service)
+           sul client viene installato il pacchetto autofs
+
 -----------
 
 [root@node1 ~]# mkdir -m 777 /francesca   Important /directory
