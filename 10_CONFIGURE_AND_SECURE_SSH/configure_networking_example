@@ -1,9 +1,3 @@
-[student@workstation ~]$ ssh student@servera
-...output omitted...
-[student@servera ~]$ sudo -i
-[sudo] password for student: student
-[root@servera ~]#
-
 #Display the network interface information
 
 [root@servera ~]# ip link
