@@ -161,11 +161,5 @@ PING 172.25.250.220 (172.25.250.220) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.272/0.493/0.777/0.210 ms
 
 
-#Return to the workstation
-
-[student@servera ~]$ exit
-logout
-Connection to servera closed.
-[student@workstation ~]$
 
 
