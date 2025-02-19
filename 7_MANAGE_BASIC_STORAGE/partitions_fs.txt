@@ -12,7 +12,7 @@ THEN WE HAVE TO MOUNT THE FS ON THAT MOUNTPOINT
 mount /mnt
 
 IMPORTANT
-When the system reoot it doesn't mount again the file system automatically.
+When the system reboot, it doesn't mount again the file system automatically.
 TO MOUNT THE FS PERSISTENTLY WE HAVE TO ADD THE PARTITION IN THE /etc/fstab FILE:
 vim /etc/fstab
 ADD THE ENTRY FOR THE NEW PARTITIONS AND FS:
