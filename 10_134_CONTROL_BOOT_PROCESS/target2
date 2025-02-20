@@ -1,6 +1,6 @@
 SELECT A TARGET AT RUNTIME
 
-On a running system, administrators can switch to a different target by using the systemctl isolate command.
+Important: On a running system, administrators can switch to a different target by using the systemctl isolate command.
 
 [root@host ~]# systemctl isolate multi-user.target
 
