@@ -1,4 +1,4 @@
-configure recommended tuned profile
+Configure recommended tuned profile
 
 dnf install tuned #if not installed
 
@@ -44,6 +44,8 @@ SET HOSTNAME
 logout
 [francesca_sbarra87@instance-20250106-161949 ~]$ sudo -i
 [root@node1 ~]#
+
+if you wanto you can execute "exec bash" to update the shell with the new configuration
 
 -------------------
 
