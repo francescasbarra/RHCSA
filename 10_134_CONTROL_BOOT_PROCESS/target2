@@ -24,7 +24,8 @@ AllowIsolate=yes
 
 SET A DEFAULT TARGET
 
-When the system starts, the systemd unit activates the default.target target. Normally, the default target the /etc/systemd/system/ directory is a symbolic link to either the graphical.target or the multi-user.target targets. Instead of editing this symbolic link by hand, the systemctl command provides two subcommands to manage this link: get-default and set-default.
+When the system starts, the systemd unit activates the default.target target. 
+Normally, the default target the /etc/systemd/system/ directory is a symbolic link to either the graphical.target or the multi-user.target targets. Instead of editing this symbolic link by hand, the systemctl command provides two subcommands to manage this link: get-default and set-default.
 
 [root@host ~]# systemctl get-default
 multi-user.target
