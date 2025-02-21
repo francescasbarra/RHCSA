@@ -32,7 +32,7 @@ To reset the root password, use the following procedure:
 
 Remount /sysroot as read/write.
 
-Enter the maintainence mode.
+Enter the maintainence mode. (point 8 from previous steps)
 
 sh-5.1# mount -o remount,rw /sysroot
 Switch into a chroot jail, where /sysroot is treated as the root of the file-system tree.
