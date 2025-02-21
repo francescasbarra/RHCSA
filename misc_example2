@@ -10,8 +10,9 @@ tar -xf myetcbackup.tar.bz2 #to extract the archive
 
 -----------------------------
 
-df -h  #to shou mounted file sistems
+df -h  #to show mounted file sistems
 
+df -Th #it shows also the file system type
 
 -----------------------------
 
