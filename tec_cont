@@ -1,0 +1,40 @@
+TECNOLOGIE DI CONTAINERIZZAZIONE 
+1)	NAMESPACES per l’isolamento dei processi
+2)	CONTROL GROUPS per la gestione delle risorse
+3)	SELINUX        per far rispettare i limiti di sicurezza
+4)	SEC COMP         “            ”                          “         ”
+
+1) KERNEL NAMESPACE 
+I Kernel Namespaces in Linux sono una funzione che isola risorse di sistema tra processi, permettendo a ciascun processo (o gruppo di processi) di avere una vista separata di alcuni elementi del sistema operativo.
+Sono usati per creare ambienti isolati, come nei container (Docker, Podman), in modo che ogni container abbia il suo spazio e non interferisca con altri processi o con l’host.
+Rappresenta una partizione, un confine tra i processi/risorse
+il concetto di namespaces è fondamentale perché è la base dell'isolamento dei container! 
+Container risiedono nei namespace?! Kernel crea una piccola partizione, 
+Sì! Quando si crea un container, vengono creati automaticamente dei namespaces per isolarlo dal sistema host.
+I namespaces sono la base dell’isolamento dei container e permettono a ogni container di avere un ambiente separato, senza interferire con gli altri processi o con l’host.
+
+UNSHARE comando usato per creare un nuovo namespace, isolando alcune risorse del sistema dal processo che lo esegue. 
+Permette di avviare un processo in un ambiente isolato, utile per test, sicurezza e containerizzazione senza avviare un vero container.
+es.
+unshare --pid --fork bash - Isolare lo spazio dei processi (PID namespace)
+
+2) CONTROL GROUPS (cgroups)
+Consentono di impostare limitazioni rispetto alle risorse del sistema, attribuiscono le restrizioni ai namespaces. Regolano le risorse assegnate.
+Sono una funzionalità del kernel che permette di limitare, monitorare e gestire le risorse (CPU, RAM, I/O, rete) utilizzate da processi o gruppi di processi.
+
+3) SEC COMP (Secure Computing Mode)
+Elenco di chiamate di sistema consentite o meno dai namespace
+elenco di permessi e rifiuti
+è una funzionalità di sicurezza del kernel Linux che limita i syscalls (chiamate di sistema) che un processo può eseguire. Serve a ridurre la superficie di attacco e aumentare la sicurezza del sistema.
+A cosa serve?
+•	Impedisce ai processi di eseguire syscalls pericolose (chiamate al kernel).
+•	Viene usato nei container (Docker, Podman) per limitare l’accesso ai syscalls non necessari.
+•	Può prevenire exploit e attacchi basati su vulnerabilità del kernel.
+
+
+CONTAINER RUNTIME, motore che applica selinux, sec comp, cgroups
+
+4) SELinux (Security-Enhanced Linux)
+selinux serve a limitare l utilizzo di file dir e porte da parte di software in generale e container
+SELinux è un modulo di sicurezza del kernel Linux che controlla e limita le azioni dei processi nel sistema, basandosi su politiche di sicurezza predefinite
+
