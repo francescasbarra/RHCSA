@@ -1,4 +1,5 @@
-TECNOLOGIE DI CONTAINERIZZAZIONE 
+TECNOLOGIE DI CONTAINERIZZAZIONE
+
 1)	NAMESPACES per l’isolamento dei processi
 2)	CONTROL GROUPS per la gestione delle risorse
 3)	SELINUX        per far rispettare i limiti di sicurezza
@@ -18,9 +19,11 @@ Permette di avviare un processo in un ambiente isolato, utile per test, sicurezz
 es.
 unshare --pid --fork bash - Isolare lo spazio dei processi (PID namespace)
 
+
 2) CONTROL GROUPS (cgroups)
 Consentono di impostare limitazioni rispetto alle risorse del sistema, attribuiscono le restrizioni ai namespaces. Regolano le risorse assegnate.
 Sono una funzionalità del kernel che permette di limitare, monitorare e gestire le risorse (CPU, RAM, I/O, rete) utilizzate da processi o gruppi di processi.
+
 
 3) SEC COMP (Secure Computing Mode)
 Elenco di chiamate di sistema consentite o meno dai namespace
@@ -33,6 +36,7 @@ A cosa serve?
 
 
 CONTAINER RUNTIME, motore che applica selinux, sec comp, cgroups
+
 
 4) SELinux (Security-Enhanced Linux)
 selinux serve a limitare l utilizzo di file dir e porte da parte di software in generale e container
