@@ -41,4 +41,5 @@ CONTAINER RUNTIME, motore che applica selinux, sec comp, cgroups
 4) SELinux (Security-Enhanced Linux)
 selinux serve a limitare l utilizzo di file dir e porte da parte di software in generale e container
 SELinux è un modulo di sicurezza del kernel Linux che controlla e limita le azioni dei processi nel sistema, basandosi su politiche di sicurezza predefinite
-
+Si basa su regole predefinite.
+Ogni ogggetto (file, directory, porte, ecc) ha un etichetta detta context.
