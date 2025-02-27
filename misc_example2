@@ -16,5 +16,7 @@ df -Th #it shows also the file system type
 
 -----------------------------
 
+find / -type f -size +30k -size -50k 
 
+-----------------------------
 
